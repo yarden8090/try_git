@@ -1,0 +1,48 @@
+<!DOCTYPE school[
+    <!ELEMENT school (books, courses, students)*>
+    <!ELEMENT books (book)*>
+    <!ELEMENT book (author, year)>
+    <!ELEMENT author (#PCDATA)>
+    <!ELEMENT year (#PCDATA)>
+    <!ATTLIST book 
+    id ID #REQUIRED
+    name CDATA #REQUIRED >
+    <!ELEMENT courses (course)*>
+    <!ELEMENT course (listRequired, listBook*)>
+    <!ELEMENT listRequired (#PCDATA)*>
+    <!ELEMENT listBook (#PCDATA)*>
+    <!ATTLIST course 
+    id ID #REQUIRED
+    name CDATA #REQUIRED >
+    <!ELEMENT students (student)*>
+    <!ELEMENT student (listOfCourses, bestCourse)>
+    <!ELEMENT listOfCourses (#PCDATA)*>
+    <!ELEMENT bestCourse (#PCDATA)*>
+    <!ATTLIST student 
+    id ID #REQUIRED
+    name CDATA #REQUIRED >
+]>
+
+<!--actual xml-->
+<school>
+   <books>
+    <book id="a123" name="Yarden">
+        <author>yarden</author>
+        <year>2004</year>
+    </book>
+   </books>
+
+   <courses>
+    <course id="b345" name="Yuval">
+    <listRequired>yuval</listRequired>
+    <listBook>nice book</listBook>
+   </course>
+</courses>
+
+<students>
+    <student id="c678" name="Amit">
+        <listOfCourses>amit</listOfCourses>
+        <bestCourse>Logic</bestCourse>
+    </student>
+</students>
+</school>
