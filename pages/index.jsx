@@ -1,16 +1,28 @@
-import React from "react";
-import Jordan from "../pages/Jordan";
+import {useState} from "react";
+import { BigHead } from "@bigheads/core";
+import AddPlayer from "../components/AddPlayer";
+import ShowPlayers from "../components/showPlayers";
+
+
 
 export default function App(){ //main
-    function reverseString(str= "name very nice"){
-        return str.split("").reverse().join("");
-     }
+    const [players, setPlayers] = useState([]);
+
+    function addPlayerToList(player){
+        setPlayers([...players, player]);
+    }
+
+    function deletePlayerFromList(id){
+        const newPlayers = players.filter((p) => {
+            return p.id !== id;
+        })
+        setPlayers(newPlayers);
+    }
+
     return (
         <>
-        <Jordan name={"glik"} age={19} />
-        <h1 style={{fontSize: 18, fontFamily: "cursive"}}>
-            {reverseString("yarden ben shabat")} is reversed name of "yarden ben shabat" 
-        </h1>
+        <AddPlayer addPlayerToList={addPlayerToList}/>
+        <ShowPlayers players={players} deletePlayerFromList={deletePlayerFromList}/>
         </>
     );
 }
