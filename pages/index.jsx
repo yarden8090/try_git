@@ -1,12 +1,12 @@
 import {useState} from "react";
-import { BigHead } from "@bigheads/core";
+//import { BigHead } from "@bigheads/core";
 import AddPlayer from "../components/AddPlayer";
 import ShowPlayers from "../components/showPlayers";
-
-
+import ShowGame from "../components/ShowGame";
 
 export default function App(){ //main
     const [players, setPlayers] = useState([]);
+    console.log(players);
 
     function addPlayerToList(player){
         setPlayers([...players, player]);
@@ -18,11 +18,11 @@ export default function App(){ //main
         })
         setPlayers(newPlayers);
     }
-
     return (
         <>
         <AddPlayer addPlayerToList={addPlayerToList}/>
         <ShowPlayers players={players} deletePlayerFromList={deletePlayerFromList}/>
+        <ShowGame players={players} setPlayers={setPlayers}/>
         </>
     );
 }

@@ -21,7 +21,7 @@ export default function AddPlayer({addPlayerToList}) {
         {bighead != null && <BigHead width = "150px" {...bighead} />}  
         
         <button onClick={() =>{
-            addPlayerToList({id, name, bighead})
+            addPlayerToList({id, name, bighead, points: 0});
             setId(id + 1);
         }}>save</button>
         </>

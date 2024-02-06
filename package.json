@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@bigheads/core": "^0.3.3",
+    "axios": "^1.6.7",
     "dom": "^0.0.3",
     "next": "^14.0.4",
     "react": "^18.2.0",
